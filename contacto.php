@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $destinatario = "contacto@matiasmuniz.com"; // Cambiar por el correo real
+    $destinatario = "matiasmuniz471@gmail.com"; 
     $contenido = "Nombre: $nombre\n";
     $contenido .= "Email: $email\n\n";
     $contenido .= "Mensaje:\n$mensaje\n";
