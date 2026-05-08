@@ -49,9 +49,52 @@
             background-image: radial-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
         }
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #0F172A;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-bar {
+            width: 150px;
+            height: 2px;
+            background: rgba(16, 185, 129, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .loader-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: #10B981;
+            animation: loading 1.5s infinite ease-in-out;
+        }
+        @keyframes loading {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
-<body class="bg-dark text-slate-200 font-sans selection:bg-primary/30 selection:text-primary">
+<body class="bg-dark text-slate-200 font-sans selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Cargando Experiencia</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
 
     <!-- Background Grid -->
     <div class="fixed inset-0 bg-grid pointer-events-none -z-10"></div>
@@ -78,23 +121,16 @@
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-primary/20 text-primary text-xs font-bold mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    PERFIL PROFESIONAL VALIDADO
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+            <div data-aos="fade-right" data-aos-duration="1200">
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight leading-none">
                     Matías Gabriel <br>
                     <span class="text-gradient">Muñiz Arellano</span>
                 </h1>
-                <p class="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed">
+                <p class="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed border-l-2 border-primary/30 pl-6">
                     “Innovación, Tecnología y Soluciones Inteligentes para el Mundo Digital.”
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#proyectos" class="bg-primary hover:bg-emerald-600 text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2">
+                    <a href="#proyectos" class="bg-primary hover:bg-emerald-600 text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20">
                         Ver Proyectos <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
                     <a href="#perfil" class="glass hover:bg-white/10 font-bold py-4 px-8 rounded-xl transition-all duration-300">
@@ -102,13 +138,17 @@
                     </a>
                 </div>
             </div>
-            <div class="relative" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="relative z-10 rounded-[2.5rem] overflow-hidden border-2 border-primary/20 p-2 glass">
-                    <img src="assets/profile.png" alt="Matías Muñiz" class="rounded-[2rem] w-full grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+            <div class="relative" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="200">
+                <div class="relative z-10 aspect-square rounded-[3rem] overflow-hidden border border-white/10 p-12 glass flex items-center justify-center group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-50"></div>
+                    <i data-lucide="user" class="w-40 h-40 text-primary/20 group-hover:text-primary/40 transition-all duration-700 transform group-hover:scale-110"></i>
+                    <!-- Stylized Frame Elements -->
+                    <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-primary/40 rounded-tl-2xl"></div>
+                    <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-primary/40 rounded-br-2xl"></div>
                 </div>
                 <!-- Decorative Elements -->
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl -z-10"></div>
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-[120px] -z-10"></div>
             </div>
         </div>
     </section>
@@ -395,6 +435,14 @@
 
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        // Loader functionality
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
