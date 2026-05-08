@@ -119,8 +119,8 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+        <div class="max-w-full mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2 ml-2">
                 <span class="text-primary">MV</span> Digital
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium">
@@ -140,11 +140,11 @@
     <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right" data-aos-duration="1200">
-                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight leading-none">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1]">
                     Matías Gabriel <br>
                     <span class="text-gradient">Muñiz Arellano</span>
                 </h1>
-                <p class="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed border-l-2 border-primary/30 pl-6">
+                <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed border-l-2 border-primary/30 pl-6">
                     “Innovación, Tecnología y Soluciones Inteligentes para el Mundo Digital.”
                 </p>
                 <div class="flex flex-wrap gap-4">
@@ -156,17 +156,57 @@
                     </a>
                 </div>
             </div>
-            <div class="relative" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="200">
-                <div class="relative z-10 aspect-square rounded-[3rem] overflow-hidden border border-white/10 p-12 glass flex items-center justify-center group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-50"></div>
-                    <i data-lucide="user" class="w-40 h-40 text-primary/20 group-hover:text-primary/40 transition-all duration-700 transform group-hover:scale-110"></i>
-                    <!-- Stylized Frame Elements -->
-                    <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-primary/40 rounded-tl-2xl"></div>
-                    <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-primary/40 rounded-br-2xl"></div>
+            <div class="relative py-12" data-aos="fade-left" data-aos-duration="1500">
+                <!-- 3D Scene Container -->
+                <div class="relative w-full aspect-square flex items-center justify-center" style="perspective: 1200px;">
+                    
+                    <!-- Floating 3D Phone Display -->
+                    <div class="relative w-64 h-[450px] glass rounded-[2.5rem] border-white/20 overflow-hidden shadow-2xl transition-transform duration-1000" 
+                         style="transform: rotateY(-25deg) rotateX(15deg) rotateZ(5deg); transform-style: preserve-3d;">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-600/10"></div>
+                        
+                        <!-- Info Content inside Phone -->
+                        <div class="p-8 space-y-6">
+                            <div class="w-12 h-1 bg-white/20 rounded-full mx-auto"></div>
+                            <div class="space-y-2">
+                                <p class="text-[10px] text-primary font-bold uppercase tracking-widest">Digital Profile</p>
+                                <h4 class="text-lg font-bold">Matías Muñiz</h4>
+                            </div>
+                            <div class="space-y-3 pt-4">
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="h-full w-4/5 bg-primary/50"></div></div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="h-full w-3/4 bg-blue-500/50"></div></div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="h-full w-1/2 bg-purple-500/50"></div></div>
+                            </div>
+                            <div class="pt-8 opacity-20"><i data-lucide="layers" class="w-full h-32"></i></div>
+                        </div>
+
+                        <!-- Floating Icons in 3D Space -->
+                        <!-- Gemini -->
+                        <div class="absolute -right-12 top-10 w-16 h-16 glass rounded-2xl flex items-center justify-center shadow-xl animate-bounce" style="transform: translateZ(100px); animation-duration: 3s;">
+                            <i data-lucide="sparkles" class="text-blue-400"></i>
+                        </div>
+                        <!-- ChatGPT -->
+                        <div class="absolute -left-12 top-40 w-16 h-16 glass rounded-2xl flex items-center justify-center shadow-xl animate-bounce" style="transform: translateZ(80px); animation-duration: 4s;">
+                            <i data-lucide="brain-circuit" class="text-emerald-400"></i>
+                        </div>
+                        <!-- Instagram -->
+                        <div class="absolute -right-8 bottom-32 w-14 h-14 glass rounded-2xl flex items-center justify-center shadow-xl animate-pulse" style="transform: translateZ(120px);">
+                            <i data-lucide="instagram" class="text-pink-500"></i>
+                        </div>
+                        <!-- WhatsApp -->
+                        <div class="absolute -left-10 bottom-16 w-14 h-14 glass rounded-2xl flex items-center justify-center shadow-xl animate-pulse" style="transform: translateZ(140px); animation-delay: 1s;">
+                            <i data-lucide="message-circle" class="text-green-500"></i>
+                        </div>
+                        <!-- Hostinger/Cloud -->
+                        <div class="absolute right-4 bottom-8 px-3 py-1 glass rounded-full text-[8px] font-bold border-primary/30" style="transform: translateZ(50px);">
+                            HOSTINGER CLOUD
+                        </div>
+                    </div>
+
+                    <!-- Ambient Glow -->
+                    <div class="absolute inset-0 bg-primary/5 rounded-full blur-[100px] -z-10"></div>
                 </div>
-                <!-- Decorative Elements -->
-                <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-[120px] -z-10"></div>
             </div>
         </div>
     </section>
