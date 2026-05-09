@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matías Muñiz | Tech Developer & Digital Solutions</title>
+    <meta name="description" content="Portafolio profesional de Matías Gabriel Muñiz Arellano - Tech Developer & Digital Solutions. Innovación, Tecnología y Soluciones Inteligentes.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981', // Emerald
+                        dark: '#0F172A',   // Slate 900
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS.js (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #10B981, #34D399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #0F172A;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* 3D Cube Loader */
+        .cube-wrapper {
+            width: 60px;
+            height: 60px;
+            perspective: 300px;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spinCube 2s infinite ease-in-out;
+        }
+        .face {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #10B981;
+            background: rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+        .front  { transform: translateZ(30px); }
+        .back   { transform: rotateY(180deg) translateZ(30px); }
+        .right  { transform: rotateY(90deg) translateZ(30px); }
+        .left   { transform: rotateY(-90deg) translateZ(30px); }
+        .top    { transform: rotateX(90deg) translateZ(30px); }
+        .bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+        @keyframes spinCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-200 font-sans selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="cube-wrapper">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Grid -->
+    <div class="fixed inset-0 bg-grid pointer-events-none -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-full mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2 ml-2">
+                <span class="text-primary">MV</span> Digital
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="#perfil" class="hover:text-primary transition-colors">Perfil</a>
+                <a href="#habilidades" class="hover:text-primary transition-colors">Habilidades</a>
+                <a href="#proyectos" class="hover:text-primary transition-colors">Proyectos</a>
+                <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
+            </div>
+            <a href="#contacto" class="bg-primary hover:bg-emerald-600 text-dark font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 text-sm">
+                Trabajemos Juntos
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right" data-aos-duration="1200" class="pr-12">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1]">
+                    Matías Gabriel <br>
+                    <span class="text-gradient">Muñiz Arellano</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed border-l-2 border-primary/30 pl-6">
+                    “Innovación, Tecnología y Soluciones Inteligentes para el Mundo Digital.”
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#proyectos" class="bg-primary hover:bg-emerald-600 text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20">
+                        Ver Proyectos <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#perfil" class="glass hover:bg-white/10 font-bold py-4 px-8 rounded-xl transition-all duration-300">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+            <div class="relative py-32 flex items-center justify-center" data-aos="fade-left" data-aos-duration="1500">
+                <!-- 3D Scene Stage -->
+                <div class="relative w-full h-[600px] flex items-center justify-center" style="perspective: 2500px;">
+                    
+                    <!-- 3D Tablet Composition -->
+                    <div class="relative w-[480px] h-[320px] transition-transform duration-1000" 
+                         style="transform: rotateY(-15deg) rotateX(10deg); transform-style: preserve-3d;">
+                        
+                        <!-- Tablet Frame -->
+                        <div class="absolute inset-0 glass rounded-[2rem] border-white/10 shadow-2xl" 
+                             style="transform: translateZ(0px); background: #0F172A; border: 8px solid rgba(255,255,255,0.05);">
+                             <!-- Tablet Screen (Landscape Background) -->
+                             <div class="absolute inset-2 rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-primary/30 via-dark to-blue-900/40">
+                                 <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                                 <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                             </div>
+                        </div>
+
+                        <!-- Content on Screen -->
+                        <div class="absolute inset-0 flex flex-col p-8 justify-center items-center text-center" 
+                             style="transform: translateZ(30px);">
+                            <div class="mb-4 px-4 py-1 bg-primary/10 border border-primary/20 rounded-full">
+                                <p class="text-[9px] text-primary font-bold tracking-[0.3em] uppercase">Técnico en Informática</p>
+                            </div>
+                            <p class="text-xs text-slate-300 max-w-xs mb-8 leading-relaxed italic">
+                                "Liderando la transformación digital mediante infraestructura robusta y soluciones inteligentes."
+                            </p>
+                            
+                            <div class="flex gap-4">
+                                <div class="px-5 py-2 bg-primary text-dark font-black text-[9px] rounded-lg tracking-widest shadow-lg shadow-primary/20 cursor-pointer hover:scale-105 transition-transform">
+                                    INNOVACIÓN
+                                </div>
+                                <div class="px-5 py-2 glass text-white font-black text-[9px] rounded-lg tracking-widest cursor-pointer hover:bg-white/10 transition-colors">
+                                    HOSTINGER CLOUD
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Icons (Closer and High Quality) -->
+                        <!-- Gemini/AI -->
+                        <div class="absolute -right-6 -top-10 w-20 h-20 glass rounded-3xl flex flex-col items-center justify-center shadow-lg border-blue-500/30" 
+                             style="transform: translateZ(100px);">
+                            <i data-lucide="sparkles" class="w-8 h-8 text-blue-400 mb-1"></i>
+                            <span class="text-[7px] font-bold text-blue-400">GEMINI</span>
+                        </div>
+                        
+                        <!-- ChatGPT -->
+                        <div class="absolute -left-10 top-0 w-20 h-20 glass rounded-3xl flex flex-col items-center justify-center shadow-lg border-emerald-500/30" 
+                             style="transform: translateZ(80px);">
+                            <i data-lucide="brain-circuit" class="w-8 h-8 text-emerald-400 mb-1"></i>
+                            <span class="text-[7px] font-bold text-emerald-400">CHATGPT</span>
+                        </div>
+
+                        <!-- WhatsApp (Official Branding SVG) -->
+                        <div class="absolute -left-6 -bottom-10 w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform cursor-pointer" 
+                             style="transform: translateZ(120px);">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03a11.81 11.81 0 001.592 5.96L0 24l6.12-1.605a11.787 11.787 0 005.926 1.605h.005c6.638 0 12.034-5.394 12.037-12.03.001-3.217-1.252-6.241-3.522-8.514" />
+                            </svg>
+                        </div>
+
+                        <!-- Instagram (Official Branding SVG) -->
+                        <div class="absolute -right-4 bottom-0 w-16 h-16 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(238,42,123,0.3)] hover:scale-110 transition-transform cursor-pointer" 
+                             style="transform: translateZ(140px);">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.063-1.366.333-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.62 6.772 6.978 6.972 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.97.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.62-6.772-6.978-6.972C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16.5a4.338 4.338 0 110-8.676 4.338 4.338 0 010 8.676zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Ambient Glow -->
+                    <div class="absolute w-[600px] h-[400px] bg-primary/10 rounded-full blur-[150px] -z-10 animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elevator Pitch / Profile -->
+    <section id="perfil" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass p-12 rounded-[2rem] relative overflow-hidden" data-aos="fade-up">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <i data-lucide="quote" class="w-32 h-32 text-primary"></i>
+                </div>
+                <div class="max-w-3xl">
+                    <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Sobre mí</h2>
+                    <p class="text-3xl font-medium leading-relaxed mb-8">
+                        Estudiante técnico en informática apasionado por el <span class="text-primary">desarrollo web, redes y automatización tecnológica</span>.
+                    </p>
+                    <p class="text-lg text-slate-400 mb-12">
+                        Especializado en la creación de páginas web modernas, soporte técnico, infraestructura de redes y soluciones digitales orientadas al crecimiento de negocios y emprendimientos. Con conocimientos en programación, diseño web y tecnologías emergentes aplicadas a proyectos tecnológicos y empresariales.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Bachiller Técnico</h4>
+                                <p class="text-slate-400 text-sm">Unidad Educativa Montepiedra</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Certificaciones Cisco</h4>
+                                <p class="text-slate-400 text-sm">Redes y Soporte Técnico</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Bento Grid -->
+    <section id="habilidades" class="py-24 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Capacidades</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Arsenal Técnico</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <!-- Web Dev -->
+                <div class="md:col-span-2 md:row-span-2 glass p-8 rounded-3xl flex flex-col justify-between group" data-aos="fade-up">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <i data-lucide="code-2" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">Desarrollo Web & Software</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">HTML5</span>
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">CSS3</span>
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">JavaScript</span>
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">Python</span>
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">Java</span>
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-xs border border-white/10">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Networking -->
+                <div class="md:col-span-2 glass p-8 rounded-3xl flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                        <i data-lucide="network" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Infraestructura & Redes</h4>
+                        <p class="text-slate-400 text-sm">Cisco Packet Tracer, VLANs, Soporte Técnico.</p>
+                    </div>
+                </div>
+
+                <!-- AI -->
+                <div class="glass p-8 rounded-3xl flex flex-col justify-center items-center text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="cpu" class="w-8 h-8 text-emerald-500 mb-4 group-hover:rotate-12 transition-transform"></i>
+                    <h4 class="font-bold">IA Tools</h4>
+                    <p class="text-xs text-slate-500 mt-2">Productividad & Automatización</p>
+                </div>
+
+                <!-- Design -->
+                <div class="glass p-8 rounded-3xl flex flex-col justify-center items-center text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="palette" class="w-8 h-8 text-purple-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Figma</h4>
+                    <p class="text-xs text-slate-500 mt-2">Maquetación & UI/UX</p>
+                </div>
+
+                <!-- Tools -->
+                <div class="md:col-span-2 glass p-8 rounded-3xl flex items-center justify-between group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                            <i data-lucide="terminal" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold">Dev Tools</h4>
+                    </div>
+                    <p class="text-slate-400 text-sm">VS Code, NetBeans, Git.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="proyectos" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div>
+                    <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Casos de Éxito</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold">Proyectos Destacados</h3>
+                </div>
+                <p class="text-slate-400 max-w-sm mb-2">
+                    Una selección de mis trabajos más recientes en desarrollo web e infraestructura de redes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Project 1 -->
+                <div class="group" data-aos="fade-up">
+                    <div class="relative rounded-3xl overflow-hidden mb-6 glass">
+                        <img src="assets/ecuador.png" alt="Selección Ecuador" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary text-dark flex items-center justify-center hover:scale-110 transition-transform">
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2">Web Selección Ecuador</h4>
+                    <p class="text-slate-400 mb-4 text-sm">Página informativa de 6 secciones con diseño moderno y responsivo.</p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 bg-white/5 rounded-md border border-white/10">HTML5</span>
+                        <span class="text-[10px] font-bold px-2 py-1 bg-white/5 rounded-md border border-white/10">CSS3</span>
+                        <span class="text-[10px] font-bold px-2 py-1 bg-white/5 rounded-md border border-white/10">DESIGN</span>
+                    </div>
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative rounded-3xl overflow-hidden mb-6 glass">
+                        <img src="assets/cisco.png" alt="Cisco Networking" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary text-dark flex items-center justify-center hover:scale-110 transition-transform">
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2">Simulación Redes Cisco</h4>
+                    <p class="text-slate-400 mb-4 text-sm">Configuración de redes empresariales, VLANs y routers.</p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 bg-white/5 rounded-md border border-white/10">NETWORKING</span>
+                        <span class="text-[10px] font-bold px-2 py-1 bg-white/5 rounded-md border border-white/10">CISCO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Vision -->
+    <section class="py-24 bg-primary/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div data-aos="zoom-in">
+                <h4 class="text-primary font-bold mb-4">MI EMPRENDIMIENTO</h4>
+                <h2 class="text-5xl md:text-6xl font-black mb-8 italic">MV Digital Solutions</h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    "Combinando creatividad y rigor técnico para desarrollar soluciones digitales funcionales y adaptadas a las necesidades de tu negocio."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div data-aos="fade-right">
+                    <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Contacto</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-8">¿Tienes un proyecto en mente?</h3>
+                    <p class="text-slate-400 mb-12 text-lg">
+                        Estoy disponible para nuevos proyectos, soporte técnico o consultas tecnológicas. ¡Hablemos!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <a href="https://wa.me/593991591628" class="flex items-center gap-4 p-4 rounded-2xl glass hover:bg-white/10 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="message-circle"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">WhatsApp Business</p>
+                                <p class="font-bold">+593 991 591 628</p>
+                            </div>
+                        </a>
+                        <a href="mailto:matiasmuniz471@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl glass hover:bg-white/10 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Correo Electrónico</p>
+                                <p class="font-bold">matiasmuniz471@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem]" data-aos="fade-left">
+                    <form action="contacto.php" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-500 ml-1">NOMBRE</label>
+                                <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-500 ml-1">EMAIL</label>
+                                <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">ASUNTO</label>
+                            <input type="text" name="asunto" placeholder="¿En qué puedo ayudarte?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">MENSAJE</label>
+                            <textarea name="mensaje" rows="4" required placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-emerald-600 text-dark font-bold py-4 rounded-xl transition-all duration-300 transform active:scale-95">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
+                <p class="text-slate-500 text-sm">
+                    © 2026 Matías Gabriel Muñiz Arellano. Todos los derechos reservados.
+                </p>
+            </div>
+            <div class="flex gap-6">
+                <a href="https://github.com/matiasmuniz471-pixel" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Loader functionality
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-4', 'bg-dark/80');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.remove('py-4', 'bg-dark/80');
+                nav.classList.add('py-0');
+            }
+        });
+    </script>
+</body>
+</html>
