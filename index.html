@@ -46,9 +46,42 @@
             -webkit-text-fill-color: transparent;
         }
         .bg-grid {
-            background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px);
-            background-size: 30px 30px;
+            display: none; /* Replaced by galaxy */
         }
+        
+        /* Galaxy Background Styles */
+        #galaxy-bg {
+            position: fixed;
+            inset: 0;
+            background: #020617;
+            z-index: -20;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .nebula {
+            position: absolute;
+            width: 80vw;
+            height: 80vw;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            z-index: -10;
+            pointer-events: none;
+        }
+        .nebula-1 { top: -10%; left: -10%; background: radial-gradient(circle, #38BDF8, transparent); }
+        .nebula-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, #818CF8, transparent); }
+        .nebula-3 { top: 40%; left: 50%; background: radial-gradient(circle, #2DD4BF, transparent); }
+
         #loader {
             position: fixed;
             inset: 0;
@@ -114,8 +147,12 @@
         </div>
     </div>
 
-    <!-- Background Grid -->
-    <div class="fixed inset-0 bg-grid pointer-events-none -z-10"></div>
+    <!-- Galaxy Background -->
+    <div id="galaxy-bg">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300">
@@ -566,6 +603,33 @@
                 mobileMenu.classList.add('translate-x-full');
             });
         });
+
+        // Galaxy Stars Generation
+        function createStars() {
+            const container = document.getElementById('galaxy-bg');
+            const starCount = window.innerWidth < 768 ? 100 : 250;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 2 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        createStars();
     </script>
 </body>
 </html>
