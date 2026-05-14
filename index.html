@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#10B981', // Emerald
-                        dark: '#0F172A',   // Slate 900
+                        primary: '#38BDF8', // Sky Blue
+                        dark: '#020617',   // Deepest Navy
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -41,12 +41,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .text-gradient {
-            background: linear-gradient(to right, #10B981, #34D399);
+            background: linear-gradient(to right, #38BDF8, #818CF8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .bg-grid {
-            background-image: radial-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px);
             background-size: 30px 30px;
         }
         #loader {
@@ -81,9 +81,9 @@
             position: absolute;
             width: 60px;
             height: 60px;
-            border: 2px solid #10B981;
-            background: rgba(16, 185, 129, 0.1);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            border: 2px solid #38BDF8;
+            background: rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
         }
         .front  { transform: translateZ(30px); }
         .back   { transform: rotateY(180deg) translateZ(30px); }
@@ -134,7 +134,7 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#contacto" class="hidden sm:block bg-primary hover:bg-emerald-600 text-dark font-bold py-2 px-4 md:px-6 rounded-full transition-all duration-300 transform hover:scale-105 text-xs md:text-sm">
+                <a href="#contacto" class="hidden sm:block bg-primary hover:bg-sky-600 text-dark font-bold py-2 px-4 md:px-6 rounded-full transition-all duration-300 transform hover:scale-105 text-xs md:text-sm">
                     Trabajemos Juntos
                 </a>
                 
@@ -189,7 +189,7 @@
                         
                         <!-- Tablet Frame -->
                         <div class="absolute inset-0 glass rounded-[2rem] border-white/10 shadow-2xl" 
-                             style="transform: translateZ(0px); background: #0F172A; border: 8px solid rgba(255,255,255,0.05);">
+                             style="transform: translateZ(0px); background: #030712; border: 8px solid rgba(255,255,255,0.05);">
                              <!-- Tablet Screen (Landscape Background) -->
                              <div class="absolute inset-2 rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-primary/30 via-dark to-blue-900/40">
                                  <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
@@ -226,10 +226,10 @@
                         </div>
                         
                         <!-- ChatGPT -->
-                        <div class="absolute -left-10 top-0 w-20 h-20 glass rounded-3xl flex flex-col items-center justify-center shadow-lg border-emerald-500/30" 
+                        <div class="absolute -left-10 top-0 w-20 h-20 glass rounded-3xl flex flex-col items-center justify-center shadow-lg border-sky-500/30" 
                              style="transform: translateZ(80px);">
-                            <i data-lucide="brain-circuit" class="w-8 h-8 text-emerald-400 mb-1"></i>
-                            <span class="text-[7px] font-bold text-emerald-400">CHATGPT</span>
+                            <i data-lucide="brain-circuit" class="w-8 h-8 text-sky-400 mb-1"></i>
+                            <span class="text-[7px] font-bold text-sky-400">CHATGPT</span>
                         </div>
 
                         <!-- WhatsApp (Official Branding SVG) -->
@@ -338,7 +338,7 @@
 
                     <!-- Service 3 -->
                     <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-sky-500 mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="cpu" class="w-6 h-6"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-4 text-white">Integración de IA</h4>
@@ -483,7 +483,7 @@
                             <label class="text-xs font-bold text-slate-500 ml-1">MENSAJE</label>
                             <textarea name="mensaje" rows="4" required placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary outline-none transition-colors"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-primary hover:bg-emerald-600 text-dark font-bold py-4 rounded-xl transition-all duration-300 transform active:scale-95">
+                        <button type="submit" class="w-full bg-primary hover:bg-sky-600 text-dark font-bold py-4 rounded-xl transition-all duration-300 transform active:scale-95">
                             Enviar Mensaje
                         </button>
                     </form>
