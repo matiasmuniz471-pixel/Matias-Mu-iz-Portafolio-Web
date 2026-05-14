@@ -181,20 +181,20 @@
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobileMenu" class="fixed inset-0 bg-dark z-[100] flex flex-col items-center justify-center gap-8 text-2xl font-bold transform translate-x-full transition-transform duration-500 md:hidden">
-            <button id="closeMenu" class="absolute top-6 right-6 p-2 text-slate-300">
-                <i data-lucide="x" class="w-8 h-8"></i>
-            </button>
-            <a href="#inicio" class="hover:text-primary transition-colors">Inicio</a>
-            <a href="#perfil" class="hover:text-primary transition-colors">Perfil</a>
-            <a href="#habilidades" class="hover:text-primary transition-colors">Habilidades</a>
-            <a href="#proyectos" class="hover:text-primary transition-colors">Proyectos</a>
-            <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
-            <a href="#contacto" class="mt-4 bg-primary text-dark py-3 px-8 rounded-xl text-lg">Trabajemos Juntos</a>
-        </div>
     </nav>
+
+    <!-- Mobile Menu Overlay (Moved out of nav for better z-index control) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-[#020617] z-[9999] flex flex-col items-start justify-center px-12 gap-8 text-3xl font-bold transform translate-x-full transition-transform duration-500 md:hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 p-2 text-slate-300">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <a href="#inicio" class="text-gradient">Inicio</a>
+        <a href="#perfil" class="hover:text-primary transition-colors">Perfil</a>
+        <a href="#habilidades" class="hover:text-primary transition-colors">Habilidades</a>
+        <a href="#proyectos" class="hover:text-primary transition-colors">Proyectos</a>
+        <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
+        <a href="#contacto" class="mt-4 bg-primary text-dark py-4 px-8 rounded-xl text-lg w-full text-center">Trabajemos Juntos</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
