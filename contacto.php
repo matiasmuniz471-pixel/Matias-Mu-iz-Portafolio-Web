@@ -16,7 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contenido .= "Email: $email\n\n";
     $contenido .= "Mensaje:\n$mensaje\n";
 
-    $headers = "From: $nombre <$email>";
+    $headers = "From: Matías Portfolio <no-reply@matiasmuniz.com>\r\n";
+    $headers .= "Reply-To: $nombre <$email>\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     if (mail($destinatario, $asunto, $contenido, $headers)) {
         http_response_code(200);
